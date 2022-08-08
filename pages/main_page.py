@@ -1,7 +1,7 @@
 from .base_page import BasePage #у кого то с точкой работает перед base_page
 from selenium.webdriver.common.by import By
 from .locators import MainPageLocators #у кого то с точкой работает перед loc...
-
+from .login_page import LoginPage
 
 class MainPage(BasePage):
     def go_to_login_page(self):
@@ -14,8 +14,10 @@ class MainPage(BasePage):
         assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
         #self.browser.find_element(By.CSS_SELECTOR, "#login_link")
 
-
-
+    def go_to_login_page(self):
+        link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+        link.click()
+        return LoginPage(browser=self.browser, url=self.browser.current_url)
 
 
 

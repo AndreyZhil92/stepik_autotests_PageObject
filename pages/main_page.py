@@ -20,6 +20,5 @@ class MainPage(BasePage):
         return LoginPage(browser=self.browser, url=self.browser.current_url)
 
 
-
     """def should_be_login_link(self): #используется в тандеме с файлом локатор там редактируется переменная тут указывается просто переменная
         assert self.is_element_present(*MainPageLocators.LOGIN_LINK), Login link is not presented"""
